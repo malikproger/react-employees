@@ -22,7 +22,7 @@ const router = createBrowserRouter(
     },
   ],
   {
-    basename: '/react-employees',
+    basename: '/react-employees/',
   },
 );
 

@@ -1,5 +1,4 @@
 import { Button as AntButton, Form } from 'antd';
-import React from 'react';
 
 type Props = {
   children: React.ReactNode;

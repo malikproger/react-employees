@@ -1,13 +1,14 @@
-import { Card, Form, Row, Space, Typography } from 'antd';
+import { Form, Row, Space, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 import { Button, Input, Layout, PasswordInput } from '../../components';
 import { Paths } from '../../consts';
+import { CardStyled } from './styled';
 
 export const RegisterPage = () => {
   return (
     <Layout>
       <Row align="middle" justify="center">
-        <Card title="Зарегистрируйтесь" style={{ width: '30rem', marginTop: '120px' }}>
+        <CardStyled title="Зарегистрируйтесь">
           <Form onFinish={() => null}>
             <Input name="name" placeholder="Имя" />
             <Input type="email" name="email" placeholder="Email" />
@@ -22,7 +23,7 @@ export const RegisterPage = () => {
               Уже зарегистрированы? <Link to={Paths.login}>Войдите</Link>
             </Typography.Text>
           </Space>
-        </Card>
+        </CardStyled>
       </Row>
     </Layout>
   );
