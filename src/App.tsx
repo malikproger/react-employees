@@ -5,13 +5,13 @@ import { GlobalStyles } from './App.styled';
 import { store } from './app/store';
 import { Paths } from './consts';
 import { Auth } from './features/auth/auth';
-import { HomePage, LoginPage, RegisterPage } from './pages';
+import { EmployeesPage, LoginPage, RegisterPage } from './pages';
 
 const router = createBrowserRouter(
   [
     {
       path: Paths.home,
-      element: <HomePage />,
+      element: <EmployeesPage />,
     },
     {
       path: Paths.login,
