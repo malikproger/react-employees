@@ -2,7 +2,7 @@ import { Form, Row, Space, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 import { Button, Input, Layout, PasswordInput } from '../../components';
 import { Paths } from '../../consts';
-import { CardStyled, GlobalStyles } from './styled';
+import { CardStyled } from './styled';
 
 export const RegisterPage = () => {
   return (
@@ -25,7 +25,6 @@ export const RegisterPage = () => {
           </Space>
         </CardStyled>
       </Row>
-      <GlobalStyles />
     </Layout>
   );
 };

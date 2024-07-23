@@ -9,7 +9,6 @@ import { Button, Layout } from '../../components';
 import { Paths } from '../../consts';
 import { selectUser } from '../../features/auth/authSlice';
 import { Employee } from '../../types';
-import { GlobalStyles } from './styled';
 
 const columns: ColumnsType<Employee> = [
   {
@@ -58,7 +57,6 @@ export const EmployeesPage = () => {
           };
         }}
       />
-      <GlobalStyles />
     </Layout>
   );
 };

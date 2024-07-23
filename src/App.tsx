@@ -7,6 +7,7 @@ import { Paths } from './consts';
 import { Auth } from './features/auth/auth';
 import {
   AddEmployeePage,
+  EditEmployeePage,
   EmployeePage,
   EmployeesPage,
   LoginPage,
@@ -39,6 +40,10 @@ const router = createBrowserRouter(
     {
       path: `${Paths.employee}/:id`,
       element: <EmployeePage />,
+    },
+    {
+      path: `${Paths.employeeEdit}/:id`,
+      element: <EditEmployeePage />,
     },
   ],
   {

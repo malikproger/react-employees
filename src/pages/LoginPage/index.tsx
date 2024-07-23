@@ -5,7 +5,7 @@ import { useLoginMutation, UserData } from '../../app/services/auth';
 import { Button, ErrorMessage, Input, Layout, PasswordInput } from '../../components';
 import { Paths } from '../../consts';
 import { isErrorWithMessage } from '../../utils';
-import { CardStyled, GlobalStyles } from './styled';
+import { CardStyled } from './styled';
 
 export const LoginPage = () => {
   const navigate = useNavigate();
@@ -47,7 +47,6 @@ export const LoginPage = () => {
           </Space>
         </CardStyled>
       </Row>
-      <GlobalStyles />
     </Layout>
   );
 };
