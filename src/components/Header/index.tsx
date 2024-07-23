@@ -1,4 +1,4 @@
-import { LoginOutlined, UserOutlined } from '@ant-design/icons';
+import { LoginOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import { ConfigProvider, Space, Typography } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
@@ -31,7 +31,7 @@ export const Header = () => {
       {user ? (
         <ButtonStyled
           ghost={true}
-          icon={<LoginOutlined />}
+          icon={<LogoutOutlined />}
           onClick={onLogoutClick}
           style={{ color: 'white' }}
         >

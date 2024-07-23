@@ -5,7 +5,14 @@ import { GlobalStyles } from './App.styled';
 import { store } from './app/store';
 import { Paths } from './consts';
 import { Auth } from './features/auth/auth';
-import { AddEmployeePage, EmployeesPage, LoginPage, RegisterPage, Status } from './pages';
+import {
+  AddEmployeePage,
+  EmployeePage,
+  EmployeesPage,
+  LoginPage,
+  RegisterPage,
+  Status,
+} from './pages';
 
 const router = createBrowserRouter(
   [
@@ -28,6 +35,10 @@ const router = createBrowserRouter(
     {
       path: `${Paths.status}/:status`,
       element: <Status />,
+    },
+    {
+      path: `${Paths.employee}/:id`,
+      element: <EmployeePage />,
     },
   ],
   {

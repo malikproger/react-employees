@@ -4,4 +4,5 @@ export type Employee = {
   lastName: string;
   age: string;
   address: string;
+  UserId: string;
 };
