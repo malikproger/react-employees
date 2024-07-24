@@ -41,7 +41,10 @@ export const EmployeePage = () => {
       await removeEmployee(data.id).unwrap();
 
       navigate('/');
-      notification.success({ placement: 'bottomRight', message: 'Сотрудник успешно удалён' });
+      notification.success({
+        placement: 'bottomRight',
+        message: 'Сотрудник успешно удалён',
+      });
     } catch (error) {
       const maybeError = isErrorWithMessage(error);
 

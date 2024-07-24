@@ -3,14 +3,7 @@ import { Navigate, Route, RouteProps, Routes } from 'react-router-dom';
 import { useCurrentQuery } from '../../app/services/auth';
 import { Paths } from '../../consts';
 import { selectIsAuthenticated } from '../../features/auth/authSlice';
-import {
-  AddEmployeePage,
-  EditEmployeePage,
-  EmployeePage,
-  EmployeesPage,
-  LoginPage,
-  RegisterPage,
-} from '../../pages';
+import { privateRoutes, publicRoutes } from './consts/routes';
 import { SpinStyled } from './styled';
 
 export const Router = () => {
@@ -25,16 +18,7 @@ export const Router = () => {
     if (!isAuthenticated) {
       return (
         <Routes>
-          {[
-            {
-              path: Paths.login,
-              element: <LoginPage />,
-            },
-            {
-              path: Paths.register,
-              element: <RegisterPage />,
-            },
-          ].map(renderSingleRoute)}
+          {publicRoutes.map(renderSingleRoute)}
           <Route path="*" element={renderRedirect()} />
         </Routes>
       );
@@ -42,24 +26,7 @@ export const Router = () => {
 
     return (
       <Routes>
-        {[
-          {
-            path: Paths.employeeAdd,
-            element: <AddEmployeePage />,
-          },
-          {
-            path: Paths.home,
-            element: <EmployeesPage />,
-          },
-          {
-            path: `${Paths.employee}/:id`,
-            element: <EmployeePage />,
-          },
-          {
-            path: `${Paths.employeeEdit}/:id`,
-            element: <EditEmployeePage />,
-          },
-        ].map(renderSingleRoute)}
+        {privateRoutes.map(renderSingleRoute)}
         <Route path="*" element={renderRedirect()} />
       </Routes>
     );
