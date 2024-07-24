@@ -1,12 +1,10 @@
 import { PlusCircleOutlined } from '@ant-design/icons';
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useGetAllEmployeesQuery } from '../../app/services/employees';
 import { Button, Layout } from '../../components';
 import { Paths } from '../../consts';
-import { selectUser } from '../../features/auth/authSlice';
 import { Employee } from '../../types';
 
 const columns: ColumnsType<Employee> = [
@@ -29,7 +27,6 @@ const columns: ColumnsType<Employee> = [
 
 export const EmployeesPage = () => {
   const navigate = useNavigate();
-  const user = useSelector(selectUser);
   const { data, isLoading } = useGetAllEmployeesQuery();
 
   const goToAddUser = () => navigate(Paths.employeeAdd);

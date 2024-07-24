@@ -1,18 +1,15 @@
 import { Row } from 'antd';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useAddEmployeeMutation } from '../../app/services/employees';
 import { EmployeeForm, Layout } from '../../components';
 import { Paths } from '../../consts';
-import { selectUser } from '../../features/auth/authSlice';
 import { Employee } from '../../types';
 import { isErrorWithMessage } from '../../utils';
 
 export const AddEmployeePage = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  const user = useSelector(selectUser);
   const [addEmployee] = useAddEmployeeMutation();
 
   const handleAddEmployee = async (data: Employee) => {
