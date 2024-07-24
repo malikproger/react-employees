@@ -1,10 +1,9 @@
-import { Row } from 'antd';
+import { notification, Row } from 'antd';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEditEmployeeMutation, useGetEmployeeQuery } from '../../app/services/employees';
 import { EmployeeForm, Layout } from '../../components';
 import { SpinStyled } from '../../components/Router/styled';
-import { Paths } from '../../consts';
 import { Employee } from '../../types';
 import { isErrorWithMessage } from '../../utils';
 
@@ -28,7 +27,8 @@ export const EditEmployeePage = () => {
 
       await editEmployee(editedEmployee).unwrap();
 
-      navigate(`${Paths.status}/updated`);
+      navigate('/');
+      notification.success({ placement: 'bottomRight', message: 'Сотрудник успешно обновлён' });
     } catch (error) {
       const maybeError = isErrorWithMessage(error);
 

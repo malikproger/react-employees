@@ -7,9 +7,6 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  html, body, body > div {
-  }
-
   body {
     font-family: 'Poppins', sans-serif;
     background-color: #141414;

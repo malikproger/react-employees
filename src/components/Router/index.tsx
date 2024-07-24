@@ -10,7 +10,6 @@ import {
   EmployeesPage,
   LoginPage,
   RegisterPage,
-  Status,
 } from '../../pages';
 import { SpinStyled } from './styled';
 
@@ -51,10 +50,6 @@ export const Router = () => {
           {
             path: Paths.home,
             element: <EmployeesPage />,
-          },
-          {
-            path: `${Paths.status}/:status`,
-            element: <Status />,
           },
           {
             path: `${Paths.employee}/:id`,

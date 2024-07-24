@@ -1,9 +1,8 @@
-import { Row } from 'antd';
+import { notification, Row } from 'antd';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAddEmployeeMutation } from '../../app/services/employees';
 import { EmployeeForm, Layout } from '../../components';
-import { Paths } from '../../consts';
 import { Employee } from '../../types';
 import { isErrorWithMessage } from '../../utils';
 
@@ -16,7 +15,8 @@ export const AddEmployeePage = () => {
     try {
       await addEmployee(data).unwrap();
 
-      navigate(`${Paths.status}/created`);
+      navigate('/');
+      notification.success({ placement: 'bottomRight', message: 'Сотрудник успешно добавлен' });
     } catch (error) {
       const maybeError = isErrorWithMessage(error);
 

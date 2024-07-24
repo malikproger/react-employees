@@ -1,12 +1,11 @@
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
-import { Descriptions, Divider, Modal, Space } from 'antd';
+import { Descriptions, Divider, Modal, notification, Space } from 'antd';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import { useGetEmployeeQuery, useRemoveEmployeeMutation } from '../../app/services/employees';
 import { Button, ErrorMessage, Layout } from '../../components';
 import { SpinStyled } from '../../components/Router/styled';
-import { Paths } from '../../consts';
 import { selectUser } from '../../features/auth/authSlice';
 import { isErrorWithMessage } from '../../utils';
 
@@ -41,7 +40,8 @@ export const EmployeePage = () => {
     try {
       await removeEmployee(data.id).unwrap();
 
-      navigate(`${Paths.status}/deleted`);
+      navigate('/');
+      notification.success({ placement: 'bottomRight', message: 'Сотрудник успешно удалён' });
     } catch (error) {
       const maybeError = isErrorWithMessage(error);
 
