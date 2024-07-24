@@ -1,5 +1,5 @@
 import { Row } from 'antd';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useAddEmployeeMutation } from '../../app/services/employees';
@@ -14,12 +14,6 @@ export const AddEmployeePage = () => {
   const navigate = useNavigate();
   const user = useSelector(selectUser);
   const [addEmployee] = useAddEmployeeMutation();
-
-  useEffect(() => {
-    if (!user) {
-      navigate('/login');
-    }
-  }, [navigate, user]);
 
   const handleAddEmployee = async (data: Employee) => {
     try {

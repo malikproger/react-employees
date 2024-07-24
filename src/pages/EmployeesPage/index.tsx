@@ -1,7 +1,6 @@
 import { PlusCircleOutlined } from '@ant-design/icons';
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useGetAllEmployeesQuery } from '../../app/services/employees';
@@ -32,12 +31,6 @@ export const EmployeesPage = () => {
   const navigate = useNavigate();
   const user = useSelector(selectUser);
   const { data, isLoading } = useGetAllEmployeesQuery();
-
-  useEffect(() => {
-    if (!user) {
-      navigate('/login');
-    }
-  }, [navigate, user]);
 
   const goToAddUser = () => navigate(Paths.employeeAdd);
   return (

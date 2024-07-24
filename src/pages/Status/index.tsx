@@ -16,9 +16,9 @@ export const Status = () => {
         status={status ? 'success' : 404}
         title={status ? statuses[status] : 'Не найдено'}
         extra={
-          <Button key="dashboard">
-            <Link to="/">На Главную</Link>
-          </Button>
+          <Link to="/">
+            <Button key="dashboard">На Главную</Button>
+          </Link>
         }
       />
     </RowStyled>

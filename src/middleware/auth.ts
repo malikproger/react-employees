@@ -1,10 +1,15 @@
-import { createListenerMiddleware } from '@reduxjs/toolkit';
+import { createListenerMiddleware, isAnyOf } from '@reduxjs/toolkit';
 import { authApi } from '../app/services/auth';
 
 export const listenerMiddleware = createListenerMiddleware();
 
+const matcher = isAnyOf(
+  authApi.endpoints.login.matchFulfilled,
+  authApi.endpoints.register.matchFulfilled,
+);
+
 listenerMiddleware.startListening({
-  matcher: authApi.endpoints.login.matchFulfilled,
+  matcher,
   effect: async (action, listenerApi) => {
     listenerApi.cancelActiveListeners();
 

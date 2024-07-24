@@ -8,7 +8,6 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   html, body, body > div {
-    height: 100%;
   }
 
   body {

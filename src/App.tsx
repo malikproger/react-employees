@@ -1,63 +1,17 @@
 import { ConfigProvider, theme } from 'antd';
 import { Provider } from 'react-redux';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { GlobalStyles } from './App.styled';
 import { store } from './app/store';
-import { Paths } from './consts';
-import { Auth } from './features/auth/auth';
-import {
-  AddEmployeePage,
-  EditEmployeePage,
-  EmployeePage,
-  EmployeesPage,
-  LoginPage,
-  RegisterPage,
-  Status,
-} from './pages';
-
-const router = createBrowserRouter(
-  [
-    {
-      path: Paths.home,
-      element: <EmployeesPage />,
-    },
-    {
-      path: Paths.login,
-      element: <LoginPage />,
-    },
-    {
-      path: Paths.register,
-      element: <RegisterPage />,
-    },
-    {
-      path: Paths.employeeAdd,
-      element: <AddEmployeePage />,
-    },
-    {
-      path: `${Paths.status}/:status`,
-      element: <Status />,
-    },
-    {
-      path: `${Paths.employee}/:id`,
-      element: <EmployeePage />,
-    },
-    {
-      path: `${Paths.employeeEdit}/:id`,
-      element: <EditEmployeePage />,
-    },
-  ],
-  {
-    basename: '/react-employees/',
-  },
-);
+import { Router } from './components/Router';
 
 function App() {
   return (
     <Provider store={store}>
       <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
-        <Auth>
-          <RouterProvider router={router} />
-        </Auth>
+        <BrowserRouter basename="/react-employees/">
+          <Router />
+        </BrowserRouter>
       </ConfigProvider>
       <GlobalStyles />
     </Provider>
