@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import { useGetEmployeeQuery, useRemoveEmployeeMutation } from '../../app/services/employees';
 import { Button, ErrorMessage, Layout } from '../../components';
+import { SpinStyled } from '../../components/Router/styled';
 import { Paths } from '../../consts';
 import { selectUser } from '../../features/auth/authSlice';
 import { isErrorWithMessage } from '../../utils';
@@ -19,7 +20,7 @@ export const EmployeePage = () => {
   const user = useSelector(selectUser);
 
   if (isLoading) {
-    return <span>Загрузка</span>;
+    return <SpinStyled />;
   }
 
   if (!data) {

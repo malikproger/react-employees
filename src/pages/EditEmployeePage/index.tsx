@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEditEmployeeMutation, useGetEmployeeQuery } from '../../app/services/employees';
 import { EmployeeForm, Layout } from '../../components';
+import { SpinStyled } from '../../components/Router/styled';
 import { Paths } from '../../consts';
 import { Employee } from '../../types';
 import { isErrorWithMessage } from '../../utils';
@@ -15,7 +16,7 @@ export const EditEmployeePage = () => {
   const [editEmployee] = useEditEmployeeMutation();
 
   if (isLoading) {
-    return <span>Загрузка</span>;
+    return <SpinStyled />;
   }
 
   const handleEditEmployee = async (employee: Employee) => {

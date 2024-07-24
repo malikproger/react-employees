@@ -12,6 +12,7 @@ import {
   RegisterPage,
   Status,
 } from '../../pages';
+import { SpinStyled } from './styled';
 
 export const Router = () => {
   const { isLoading: isAuthenticating } = useCurrentQuery();
@@ -78,7 +79,7 @@ export const Router = () => {
   };
 
   if (isAuthenticating) {
-    return <span>Загрузка</span>;
+    return <SpinStyled />;
   }
 
   return renderRoutes();
