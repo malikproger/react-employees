@@ -6,7 +6,7 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   plugins: [react(), basicSsl()],
   build: {
-    outDir: './dist',
+    outDir: './build',
   },
   base: '/react-employees/',
 });
